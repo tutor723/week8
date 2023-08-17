@@ -19,11 +19,9 @@ const getGenreAndBooks = async (req, res) => {
     const genre = await Genre.findOne({
       where: {
         genreName: req.body.genre,
-      
       },
       include: Book,
     });
-    console.log(genreName)
     res.status(200).json({ message: "Success", genre: genre });
   } catch {
     console.log(error);

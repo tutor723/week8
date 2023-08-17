@@ -11,8 +11,10 @@ const addBook = async (req, res) => {
     const genre = await Genre.findOne({
       where: {
         genreName: req.body.genre,
+        
       },
     });
+    console.log(genreName)
     const newBook = await Book.create({
       title: req.body.title,
       author: req.body.author,
