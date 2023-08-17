@@ -20,6 +20,7 @@ const addBook = async (req, res) => {
       author: req.body.author,
       genre: req.body.genre,
       AuthorId: author.id,
+     genre:genre.id,
     });
     // const newBook = await Book.create(req.body)
 
