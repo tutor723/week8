@@ -18,10 +18,12 @@ const getGenreAndBooks = async (req, res) => {
   try {
     const genre = await Genre.findOne({
       where: {
-        genreName: req.params["genre"],
+        genreName: req.body.genre,
+      
       },
       include: Book,
     });
+    console.log(genreName)
     res.status(200).json({ message: "Success", genre: genre });
   } catch {
     console.log(error);

@@ -17,7 +17,9 @@ const Book = connection.define("Book", {
   AuthorId: {
     type: DataTypes.INTEGER,
   },
- 
+  GenreId: {
+    type: DataTypes.INTEGER,
+  },
 });
 
 module.exports = Book;
