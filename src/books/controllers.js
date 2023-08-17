@@ -6,7 +6,7 @@ const addBook = async (req, res) => {
     const author = await Author.findOne({
       where: {
         authorName: req.body.author,
-    genreName:req.body.genre
+ 
       },
     });
 
