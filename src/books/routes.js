@@ -6,7 +6,7 @@ const { addBook, getAllBooks,updateBooks,deleteBook,deleteBooks,getBook } = requ
 
 bookRouter.post("/books/addBook", addBook);
 bookRouter.get("/books/getAllBooks", getAllBooks);
-bookRouter.get("/books/getBook", getBook);
+bookRouter.get("/books/getBook/:title", getBook);
 bookRouter.put("/books/updateBooks", updateBooks);
 bookRouter.delete("/books/deleteBook", deleteBook)
 bookRouter.delete("/books/deleteBooks", deleteBooks)
