@@ -1,10 +1,10 @@
-const {Router} = require("express")
+const { Router } = require("express");
 
-const authorRouter = Router()
+const authorRouter = Router();
 
-const {addAuthor, getAuthorAndBooks} = require("./controllers")
+const { addAuthor, getAuthorAndBooks } = require("./controllers");
 
-authorRouter.post("/authors/addAuthor", addAuthor)
-authorRouter.get("/authors/getAuthorAndBooks/:author", getAuthorAndBooks )
+authorRouter.post("/authors/addAuthor", addAuthor);
+authorRouter.get("/authors/getAuthorAndBooks/:author", getAuthorAndBooks);
 
-module.exports = authorRouter
+module.exports = authorRouter;

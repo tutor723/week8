@@ -1,6 +1,7 @@
 const Author = require("./model");
 const Book = require("../books/model");
 
+//add a author
 const addAuthor = async (req, res) => {
   try {
     const author = await Author.create({
@@ -13,6 +14,7 @@ const addAuthor = async (req, res) => {
   }
 };
 
+//get a book with author title
 const getAuthorAndBooks = async (req, res) => {
   try {
     const author = await Author.findOne({

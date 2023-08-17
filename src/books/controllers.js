@@ -1,6 +1,8 @@
 const Book = require("./model");
 const Author = require("../authors/model");
 const Genre = require("../genre/model");
+
+//add book
 const addBook = async (req, res) => {
   try {
     const author = await Author.findOne({
@@ -11,10 +13,8 @@ const addBook = async (req, res) => {
     const genre = await Genre.findOne({
       where: {
         genreName: req.body.genre,
-        
       },
     });
-    console.log(genreName)
     const newBook = await Book.create({
       title: req.body.title,
       author: req.body.author,
@@ -22,8 +22,8 @@ const addBook = async (req, res) => {
       AuthorId: author.id,
       GenreId: genre.id,
     });
-    // const newBook = await Book.create(req.body)
 
+    console.log(genre.id);
     res.status(200).json({ message: "Success", book: newBook });
   } catch (error) {
     res.status(501).json({ message: error.message, error: error });
@@ -31,6 +31,7 @@ const addBook = async (req, res) => {
   }
 };
 
+//delete single book by title
 const deleteBook = async (req, res) => {
   try {
     const deleteBook = await Book.destroy({
@@ -45,6 +46,7 @@ const deleteBook = async (req, res) => {
   }
 };
 
+//delete all book
 const deleteBooks = async (req, res) => {
   try {
     const deleteBooks = await Book.truncate();
@@ -54,6 +56,8 @@ const deleteBooks = async (req, res) => {
     console.log(error);
   }
 };
+
+//get all book
 const getAllBooks = async (req, res) => {
   try {
     const books = await Book.findAll();
@@ -64,6 +68,7 @@ const getAllBooks = async (req, res) => {
   }
 };
 
+//get single boook
 const getBook = async (req, res) => {
   try {
     const getBook = await Book.findOne({
@@ -77,6 +82,8 @@ const getBook = async (req, res) => {
     console.log(error);
   }
 };
+
+//update book by title
 const updateBooks = async (req, res) => {
   try {
     const updateBook = await Book.update(
@@ -96,6 +103,7 @@ const updateBooks = async (req, res) => {
     console.log(error);
   }
 };
+
 module.exports = {
   addBook,
   getAllBooks,

@@ -1,7 +1,7 @@
-
 const Book = require("../books/model");
 const Genre = require("./model");
 
+//add genre
 const addGenre = async (req, res) => {
   try {
     const genre = await Genre.create({
@@ -14,6 +14,7 @@ const addGenre = async (req, res) => {
   }
 };
 
+//get a book by genre
 const getGenreAndBooks = async (req, res) => {
   try {
     const genre = await Genre.findOne({
